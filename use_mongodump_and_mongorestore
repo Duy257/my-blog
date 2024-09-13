@@ -41,7 +41,7 @@ mongodump --uri="mongodb://user:password@localhost:27017/mydatabase"
 
 #### Ví dụ với tùy chọn:
 ```sh
-mongodump --uri="mongodb://user:password@localhost:27017" --db=mydatabase --out=C:\path\to\backup
+mongodump --uri="mongodb://user:password@localhost:27017" --db=mydatabase --out=C:/path/to/backup
 
 ```
 
@@ -56,7 +56,7 @@ mongorestore --uri="mongodb://<username>:<password>@<host>:<port>/<database>" /p
 
 #### Ví dụ:
 ```sh
-mongorestore --uri="mongodb://user:password@localhost:27017/mydatabase" C:\path\to\backup
+mongorestore --uri="mongodb://user:password@localhost:27017/mydatabase" C:/path/to/backup
 ```
 
 #### Tùy chọn phổ biến:
@@ -66,7 +66,7 @@ mongorestore --uri="mongodb://user:password@localhost:27017/mydatabase" C:\path\
 
 #### Ví dụ với tùy chọn:
 ```sh
-mongorestore --uri="mongodb://user:password@localhost:27017" --db=mydatabase --drop C:\path\to\backup
+mongorestore --uri="mongodb://user:password@localhost:27017" --db=mydatabase --drop C:/path/to/backup
 ```
 
 ### 4. Lưu ý
