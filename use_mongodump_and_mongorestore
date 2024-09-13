@@ -1,0 +1,77 @@
+Mongodump và mongorestore là hai công cụ dòng lệnh mạnh mẽ được sử dụng để sao lưu và khôi phục dữ liệu trong MongoDB. Dưới đây là hướng dẫn chi tiết về cách sử dụng chúng.
+
+### 1. Cài đặt MongoDB Tools
+
+Trước tiên, bạn cần cài đặt MongoDB Tools, bao gồm mongodump và mongorestore. Bạn có thể tải về từ trang chủ của MongoDB (https://www.mongodb.com/) hoặc sử dụng các trình quản lý gói như `apt` (trên Ubuntu) hoặc `brew` (trên macOS).
+
+#### Trên Ubuntu:
+```sh
+sudo apt-get install mongodb-org-tools
+```
+
+#### Trên macOS:
+```sh
+brew tap mongodb/brew
+brew install mongodb-database-tools
+```
+
+#### Trên Windows
+Bước 1: Tải MongoDB ToolsTruy cập trang tải về của MongoDB  và tải về phiên bản phù hợp với hệ điều hành Windows của bạn.
+Bước 2: Cài đặt MongoDB ToolsGiải nén tệp tải về và thêm đường dẫn của thư mục bin vào biến môi trường PATH của hệ thống để có thể sử dụng các công cụ từ bất kỳ đâu trong Command Prompt.
+
+
+### 2. Sử dụng mongodump
+
+`mongodump` được sử dụng để tạo bản sao lưu của cơ sở dữ liệu MongoDB.
+
+#### Cú pháp cơ bản:
+```sh
+mongodump --uri="mongodb://<username>:<password>@<host>:<port>/<database>"
+```
+
+#### Ví dụ:
+```sh
+mongodump --uri="mongodb://user:password@localhost:27017/mydatabase"
+```
+
+#### Tùy chọn phổ biến:
+- `--out`: Chỉ định thư mục đầu ra cho bản sao lưu.
+- `--db`: Chỉ định tên cơ sở dữ liệu để sao lưu.
+- `--collection`: Chỉ định tên bộ sưu tập để sao lưu.
+
+#### Ví dụ với tùy chọn:
+```sh
+mongodump --uri="mongodb://user:password@localhost:27017" --db=mydatabase --out=C:\path\to\backup
+
+```
+
+### 3. Sử dụng mongorestore
+
+`mongorestore` được sử dụng để khôi phục dữ liệu từ bản sao lưu được tạo bởi `mongodump`.
+
+#### Cú pháp cơ bản:
+```sh
+mongorestore --uri="mongodb://<username>:<password>@<host>:<port>/<database>" /path/to/backup
+```
+
+#### Ví dụ:
+```sh
+mongorestore --uri="mongodb://user:password@localhost:27017/mydatabase" C:\path\to\backup
+```
+
+#### Tùy chọn phổ biến:
+- `--drop`: Xóa các bộ sưu tập hiện có trước khi khôi phục.
+- `--db`: Chỉ định tên cơ sở dữ liệu để khôi phục.
+- `--collection`: Chỉ định tên bộ sưu tập để khôi phục.
+
+#### Ví dụ với tùy chọn:
+```sh
+mongorestore --uri="mongodb://user:password@localhost:27017" --db=mydatabase --drop C:\path\to\backup
+```
+
+### 4. Lưu ý
+
+- Đảm bảo rằng bạn có quyền truy cập cần thiết vào cơ sở dữ liệu MongoDB.
+- Kiểm tra phiên bản của MongoDB Tools để đảm bảo tương thích với phiên bản MongoDB của bạn.
+- Sao lưu và khôi phục có thể mất thời gian tùy thuộc vào kích thước của dữ liệu.
+        
